@@ -47,6 +47,9 @@ class Timer extends React.Component {
 
     startTimer() {
         this.setState({ isRun: true });
+        if (this.state.timeLeft === 0){
+            this.setState({ timeLeft: this.props.time, key: this.state.key + 1 })
+        }
         if (this.state.onTimeStart) {
             this.state.onTimeStart();
         };
@@ -63,13 +66,6 @@ class Timer extends React.Component {
         }
     }
 
-    resetTimer() {
-        this.setState({ isRun: this.state.autostart, timeLeft: this.state.time })
-        if (this.state.onTimeEnd) {
-            this.state.onTimeEnd();
-        };
-    }
-
     render() {
 
         return (
@@ -77,7 +73,6 @@ class Timer extends React.Component {
                 <div>
                     <button className='button-timer' onClick={this.startTimer.bind(this)}>Start</button>
                     <button className='button-timer' onClick={this.pauseTimer.bind(this)}>Pause</button>
-                    <button className='button-timer' onClick={this.resetTimer.bind(this)}>Reset</button>
                 </div>
                 <p> The Timer is running
                     <label className='text-timer-state'> {this.state.isRun.toString()}</label>

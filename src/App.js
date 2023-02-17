@@ -19,7 +19,7 @@ function App() {
           console.log("Таймер на паузі!")
         }
       ></Timer>
-      <h5>Short infinity (not from task)</h5>
+      <h5>Short infinity (not from task, pause after finish is 1 sec.)</h5>
       <Timer time={10000} step={2000} autostart={true} ></Timer>
       <h5>InfiniteTimer</h5>
       <InfiniteTimer></InfiniteTimer>    
