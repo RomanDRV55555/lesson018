@@ -5,6 +5,7 @@ import InfiniteTimer from './Components/InfiniteTimer';
 function App() {
   return (
     <div>
+      <h5>Standart timer</h5>
       <Timer time={10000} step={1000}
         onTick={(time) => console.log("Залишилось часу: " + time)}
         onTimeEnd={() => {
@@ -18,8 +19,10 @@ function App() {
           console.log("Таймер на паузі!")
         }
       ></Timer>
+      <h5>Short infinity (not from task)</h5>
       <Timer time={10000} step={2000} autostart={true} ></Timer>
-      <InfiniteTimer> </InfiniteTimer>    
+      <h5>InfiniteTimer</h5>
+      <InfiniteTimer></InfiniteTimer>    
     </div>
 
   );
