@@ -1,0 +1,23 @@
+.block-timer {
+    font-family: 'Montserrat Alternates', sans-serif;
+    padding: 10px;
+    border-style: outset;
+}
+
+.button-timer {
+    background-color: #034eae; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-style: groove;
+}
+
+.text-timer-state {
+        text-decoration: none;
+        color: #02A4FF;
+        font-size: medium;
+}

@@ -1,24 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
+import Timer from './Components/Timer.js'
+import InfiniteTimer from './Components/InfiniteTimer';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Timer time={10000} step={1000}
+        onTick={(time) => console.log("Залишилось часу: " + time)}
+        onTimeEnd={() => {
+            console.log("Час вийшов!")
+          }
+        }
+        onTimeStart={(timeLeft) =>
+          console.log("Таймер запущено!")
+        }
+        onTimePause={(timeLeft) =>
+          console.log("Таймер на паузі!")
+        }
+      ></Timer>
+      <Timer time={10000} step={2000} autostart={true} ></Timer>
+      <InfiniteTimer> </InfiniteTimer>    
     </div>
+
   );
 }
 
