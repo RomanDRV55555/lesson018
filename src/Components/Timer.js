@@ -29,7 +29,7 @@ class Timer extends React.Component {
                         this.setState({ timeLeft: this.props.time, key: this.state.key + 1 })
                     } else {
                         this.setState({ isRun: false });
-                        clearInterval(timerInterval);
+                        // clearInterval(timerInterval);
                     }
                 } else {
                     this.setState({ timeLeft: this.state.timeLeft - this.state.step });
@@ -47,8 +47,8 @@ class Timer extends React.Component {
 
     startTimer() {
         this.setState({ isRun: true });
-        if (this.state.timeLeft === 0){
-            this.setState({ timeLeft: this.props.time, key: this.state.key + 1 })
+        if (this.state.timeLeft <= 0){
+            this.setState({ timeLeft: this.state.time, key: this.state.key + 1 })
         }
         if (this.state.onTimeStart) {
             this.state.onTimeStart();
@@ -56,13 +56,11 @@ class Timer extends React.Component {
     }
 
     pauseTimer() {
-        if (this.state.isRun) {
-            this.setState({ isRun: !this.state.isRun })
+        this.setState({ isRun: !this.state.isRun })
+        if (!this.state.isRun) {
             if (this.state.onTimePause) {
                 this.state.onTimePause();
-            };
-        } else {
-            this.startTimer();
+            }
         }
     }
 
